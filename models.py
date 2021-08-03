@@ -82,6 +82,7 @@ class Transfer(db.Model):
 
 class Transactions(db.Model):
     id = db.Column(db.String(100), primary_key=True)
+    user_id = db.Column(db.String(100))
     json = db.Column(db.Text())
 
     def create(self):

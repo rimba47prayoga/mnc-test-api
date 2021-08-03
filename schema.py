@@ -2,7 +2,7 @@ from datetime import datetime
 from operator import add
 import uuid
 
-from marshmallow import fields
+from marshmallow import fields, Schema
 from marshmallow_sqlalchemy import SQLAlchemySchema
 
 from models import User, TopUp, Payment, Transfer, db
@@ -27,9 +27,13 @@ class UserRegisterSchema(SQLAlchemySchema):
         return data
 
 
-class TopUpSchema(SQLAlchemySchema):
-    class Meta:
-        model = TopUp
+class UserLoginSchema(Schema):
+    phone_number = fields.Str(required=True)
+    pin = fields.Str(required=True)
+
+
+class TopUpSchema(Schema):
+    amount = fields.Int(required=True)
 
 
     def top_up(self, user, amount):
@@ -56,10 +60,10 @@ class TopUpSchema(SQLAlchemySchema):
         }
 
 
-class PaymentSchema(SQLAlchemySchema):
+class PaymentSchema(Schema):
 
-    class Meta:
-        model = Payment
+    amount = fields.Integer(required=True)
+    remarks = fields.Str(required=True)
 
     def payment(self, user, amount, remarks):
         if isinstance(amount, str):
@@ -89,15 +93,18 @@ class PaymentSchema(SQLAlchemySchema):
         }
 
 
-class TransferSchema(SQLAlchemySchema):
+class TransferSchema(Schema):
 
-    class Meta:
-        model = Transfer
+    target_user = fields.Str(required=True)
+    amount = fields.Integer(required=True)
+    remarks = fields.Str(required=True)
 
     def transfer(self, user, target, amount, remarks):
         if isinstance(amount, str):
             amount = int(amount)
         target_user = User.query.filter_by(user_id=target).first()
+        if target_user is None:
+            raise ValueError(f"User {target} does not exists")
         target_user.balance = target_user.balance + amount
         balance_after = user.balance - amount
         if balance_after < 0:
