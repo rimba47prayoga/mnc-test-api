@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "fc95aa52-9d18-4ca6-83e0-97b93fcc1ca9",
+		"name": "MNC collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\"first_name\": \"Guntur\",\n\"last_name\": \"Saputro\", \n\"phone_number\": \"0811255501\", \n\"address\": \"Jl. Kebon Sirih No. 1\", \n\"pin\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\"first_name\": \"Rimba\",\n\"last_name\": \"Prayoga\", \n\"phone_number\": \"082211967647\", \n\"address\": \"Bandung\", \n\"pin\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYyNzk5NzQ1NiwianRpIjoiOGJmZDhmYmQtZjA5Zi00ZjFjLTk5MWEtODRmYjAyYWIwOGNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjA4MTEyNTU1MDEiLCJuYmYiOjE2Mjc5OTc0NTYsImV4cCI6MTYyNzk5ODM1Nn0.mF92AMxuuWE1Tzl-Zhm4E0irzZgMszfvzWecN_h17Ss",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\"first_name\": \"Tom\", \n\"last_name\": \"Araya\", \n\"address\": \"Jl. Diponegoro No. 215\" \n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone_number\": \"0811255501\", \n    \"pin\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/topup",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYyNzk5ODY1MCwianRpIjoiOTVlOGI0MTQtYTgwYS00ODc0LTg4MWQtYjViZTgyNmM2NjE0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjA4MTEyNTU1MDEiLCJuYmYiOjE2Mjc5OTg2NTAsImV4cCI6MTYyNzk5OTU1MH0.v4cm87yxLKoqMO6MoQVgaH6DfLhk0WM7X_S_5nshsvk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 500000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/topup",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"topup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/pay",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYyNzk5OTQ1NSwianRpIjoiNGI3ZjE5MGQtZjBkNy00MmRhLTkwZmYtNmQ3ZGJlZjZkZWRiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjA4MTEyNTU1MDEiLCJuYmYiOjE2Mjc5OTk0NTUsImV4cCI6MTYyODAwMDM1NX0.KXiyLvjiI_mvacaRzd8e1I0yOPnFh7KAv95BoB3CJJE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 100000, \n    \"remarks\": \"Pulsa Telkomsel 100k\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/pay",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/transfer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYyNzk5OTQ1NSwianRpIjoiNGI3ZjE5MGQtZjBkNy00MmRhLTkwZmYtNmQ3ZGJlZjZkZWRiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjA4MTEyNTU1MDEiLCJuYmYiOjE2Mjc5OTk0NTUsImV4cCI6MTYyODAwMDM1NX0.KXiyLvjiI_mvacaRzd8e1I0yOPnFh7KAv95BoB3CJJE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"target_user\": \"d5f03435-14ec-4f84-b366-311b9741704e\",\n    \"amount\": 30000,\n    \"remarks\": \"Hadiah Ultah\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/transfer",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/transactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYyNzk5ODY1MCwianRpIjoiOTVlOGI0MTQtYTgwYS00ODc0LTg4MWQtYjViZTgyNmM2NjE0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjA4MTEyNTU1MDEiLCJuYmYiOjE2Mjc5OTg2NTAsImV4cCI6MTYyNzk5OTU1MH0.v4cm87yxLKoqMO6MoQVgaH6DfLhk0WM7X_S_5nshsvk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
